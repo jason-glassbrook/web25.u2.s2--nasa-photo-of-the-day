@@ -2,7 +2,7 @@
   API.NASA.GOV - APIs
 *******************************************************************************/
 
-class API {
+export class API {
   constructor ({base_url , params}) {
     this.base_url = base_url;
     this.params = params;
@@ -33,7 +33,7 @@ class API {
   }
 }
 
-export const APOD = {
+export const APOD_API = new API({
   "base_url" : "https://api.nasa.gov/planetary/apod",
   "params" : {
     "api_key" : {
@@ -51,26 +51,4 @@ export const APOD = {
       "format" : (x) => (x ? "True" : "False"),
     },
   },
-  "params_url" : function (params) {
-    // get _real_ params
-    const real_param_names = Object.keys (this["params"]);
-    const good_param_names = (Object.keys (this["params"])).filter (
-      (name) => (real_param_names.includes (name))
-    );
-    // create params url string
-    const params_url = (
-      good_param_names
-      .map ((name , i) => {
-        const first = ((i === 0) ? "?" : "");
-        const value = this["params"][name].format (params[name]);
-        return (`${first}${name}=${value}`);
-      })
-      .join ("&")
-    );
-    //
-    return (params_url);
-  },
-  "url" : function (params) {
-    return (`${this["base_url"]}${this["params_url"] (params)}`);
-  },
-};
+});
