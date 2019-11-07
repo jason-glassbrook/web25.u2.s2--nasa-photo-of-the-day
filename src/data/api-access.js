@@ -10,7 +10,34 @@ export const account = {
 
 export const api = {
   "base_url" : "https://api.nasa.gov/planetary/apod",
-  "url"      : function ({api_key}) {
+  "options" : {
+    "api_key" : {
+      "format" : (x) => (x),
+      "to" : function ({api_key}) {
+        return (`api_key=${this.format (api_key)}`);
+      },
+    },
+    "date" : {
+      "format" : (x) => {
+        const datetime = x.toISOString ();
+        const stop = datetime.indexOf ("T");
+        const date = datetime.slice (0 , stop);
+        return (date);
+      },
+      "to" : function ({date}) {
+        return (
+          `date=${this.format (date)}`
+        );
+      },
+    },
+    "hd" : {
+      "format" : (x) => (x ? "True" : "False"),
+      "to" : function ({hd}) {
+        return (`hd=${this.format (hd)}`);
+      },
+    },
+  },
+  "url" : function ({api_key}) {
     `${this["base_url"]}?api_key=${api_key}`
   },
 };
