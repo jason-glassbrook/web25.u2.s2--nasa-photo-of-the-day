@@ -13,14 +13,19 @@ const init = {
     "api_key" : account.api_key,
     "date" : Date.now (),
     "hd" : true,
-  }
-}
+  },
+  "photo" : {},
+};
 
 /***************************************
   COMPONENTS
 ***************************************/
 function App () {
   const [query , setQuery] = React.useState (init.query);
+  const [photo , setPhoto] = React.useState (init.photo);
+  //
+  React.useEffect (() => {
+  } , [query.date]);
   //
   return (
     <div className="App">
