@@ -11,7 +11,7 @@ import { Date } from "core-js";
 const init = {
   "query" : {
     "api_key" : account.api_key,
-    "date" : Date.now (),
+    "date" : (new Date ()),
     "hd" : true,
   },
   "photo" : {},
