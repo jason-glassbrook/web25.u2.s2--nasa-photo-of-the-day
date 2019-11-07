@@ -9,27 +9,46 @@ export class API {
   }
 
   query_params_url (params) {
-    // get _real_ params
+    /// get _real_ params ///
     const real_param_names = Object.keys (this["params"]);
+    // /* TESTING */ console.log (real_param_names);
+
+    /// get _good_ params from input ///
     const good_param_names = (Object.keys (this["params"])).filter (
       (name) => (real_param_names.includes (name))
-    );
-    // create params url string
+      );
+    // /* TESTING */ console.log (good_param_names);
+
+    /// create params url string ///
     const params_url = (
       good_param_names
-      .map ((name , i) => {
-        const first = ((i === 0) ? "?" : "");
-        const value = this.params[name].format (params[name]);
-        return (`${first}${name}=${value}`);
-      })
-      .join ("&")
+        .map ((name , i) => {
+          const first = ((i === 0) ? "?" : "");
+          
+          // /* TESTING */ console.log (name);
+          // /* TESTING */ console.log (params[name]);
+          const value = this.params[name].format (params[name]);
+          // /* TESTING */ console.log (value);
+          
+          return (`${first}${name}=${value}`);
+        })
+        .join ("&")
     );
-    //
+    // /* TESTING */ console.log (params_url);
+    
+    ///
     return (params_url);
   }
 
   query_url (params) {
-    return (`${this.base_url}${this.query_params_url (params)}`);
+    /// create full url ///
+    const full_url = (
+      `${this.base_url}${this.query_params_url (params)}`
+    );
+    // /* TESTING */ console.log (full_url);
+
+    ///
+    return (full_url);
   }
 }
 
