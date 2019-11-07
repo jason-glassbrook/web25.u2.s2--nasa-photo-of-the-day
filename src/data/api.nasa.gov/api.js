@@ -4,7 +4,7 @@
 
 export const APOD = {
   "base_url" : "https://api.nasa.gov/planetary/apod",
-  "options" : {
+  "params" : {
     "api_key" : {
       "format" : (x) => (x),
       "to" : function ({api_key}) {
@@ -31,26 +31,26 @@ export const APOD = {
       },
     },
   },
-  "options_url" : function (options) {
-    // get _real_ options
-    const real_option_names = Object.keys (this["options"]);
-    const good_option_names = (Object.keys (this["options"])).filter (
-      (name) => (real_option_names.includes (name))
+  "params_url" : function (params) {
+    // get _real_ params
+    const real_param_names = Object.keys (this["params"]);
+    const good_param_names = (Object.keys (this["params"])).filter (
+      (name) => (real_param_names.includes (name))
     );
-    // create options url string
-    const options_url = (
-      good_option_names
+    // create params url string
+    const params_url = (
+      good_param_names
       .map ((name , i) => {
         const first = ((i === 0) ? "?" : "");
-        const value = this["options"][name].format (options[name]);
+        const value = this["params"][name].format (params[name]);
         return (`${first}${name}=${value}`);
       })
       .join ("&")
     );
     //
-    return (options_url);
+    return (params_url);
   },
-  "url" : function (options) {
-    return (`${this["base_url"]}${this["options_url"] (options)}`);
+  "url" : function (params) {
+    return (`${this["base_url"]}${this["params_url"] (params)}`);
   },
 };
