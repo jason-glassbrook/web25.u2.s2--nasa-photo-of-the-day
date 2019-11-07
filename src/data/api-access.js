@@ -37,10 +37,26 @@ export const api = {
       },
     },
   },
-  "url_options" : function (options) {
-    return "";
+  "options_url" : function (options) {
+    // get _real_ options
+    const real_option_names = Object.keys (this["options"]);
+    const good_option_names = (Object.keys (this["options"])).filter (
+      (name) => (real_option_names.includes (name))
+    );
+    // create options url string
+    const options_url = (
+      good_option_names
+      .map ((name , i) => {
+        const first = ((i === 0) ? "?" : "");
+        const value = this["options"][name].format (options[name]);
+        return (`${first}${name}=${value}`);
+      })
+      .join ("&")
+    );
+    //
+    return (options_url);
   },
   "url" : function (options) {
-    return (`${this["base_url"]}${this["url_options"]}`);
+    return (`${this["base_url"]}${this["options_url"] (options)}`);
   },
 };
