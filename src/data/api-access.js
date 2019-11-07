@@ -37,7 +37,10 @@ export const api = {
       },
     },
   },
-  "url" : function ({api_key}) {
-    `${this["base_url"]}?api_key=${api_key}`
+  "url_options" : function (options) {
+    return "";
+  },
+  "url" : function (options) {
+    return (`${this["base_url"]}${this["url_options"]}`);
   },
 };
