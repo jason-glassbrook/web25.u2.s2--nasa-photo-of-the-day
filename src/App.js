@@ -1,9 +1,14 @@
+/// external modules ///
 import React from "react";
 import axios from "axios";
+import { Date } from "core-js";
+
+/// internal modules ///
 import {APOD_API} from "./data/api.nasa.gov/api";
 import account from "./data/api.nasa.gov/account";
+
+/// styles ///
 import "./App.css";
-import { Date } from "core-js";
 
 /***************************************
   STATES
