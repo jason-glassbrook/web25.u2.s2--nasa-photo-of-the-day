@@ -7,9 +7,6 @@ export const APOD = {
   "params" : {
     "api_key" : {
       "format" : (x) => (x),
-      "to" : function ({api_key}) {
-        return (`api_key=${this.format (api_key)}`);
-      },
     },
     "date" : {
       "format" : (x) => {
@@ -18,17 +15,9 @@ export const APOD = {
         const date = datetime.slice (0 , stop);
         return (date);
       },
-      "to" : function ({date}) {
-        return (
-          `date=${this.format (date)}`
-        );
-      },
     },
     "hd" : {
       "format" : (x) => (x ? "True" : "False"),
-      "to" : function ({hd}) {
-        return (`hd=${this.format (hd)}`);
-      },
     },
   },
   "params_url" : function (params) {
