@@ -17,6 +17,31 @@ const init = {
   "photo" : {},
 };
 
+const fetchPhoto = async (query) => {
+  let data = {};
+  //
+  await axios
+    .get ((() => {
+      console.log ("--- fetching photo... ---");
+      return (APOD_API.query_url (query));
+    })())
+    .then ((response) => {
+      console.log ("--- success! ---");
+      data = response.data;
+      console.log (data);
+    })
+    .catch ((error) => {
+      console.log ("--- failure! ---");
+      data = { "error" : error };
+      console.log (data);
+    })
+    .finally (() => {
+      console.log ("--- done. ---");
+    })
+  //
+  return (data);
+}
+
 /***************************************
   COMPONENTS
 ***************************************/
@@ -25,6 +50,10 @@ function App () {
   const [photo , setPhoto] = React.useState (init.photo);
   //
   React.useEffect (() => {
+    const newPhoto = fetchPhoto (query);
+    if (newPhoto.error === undefined) {
+      setPhoto (newPhoto);
+    }
   } , [query.date]);
   //
   return (
