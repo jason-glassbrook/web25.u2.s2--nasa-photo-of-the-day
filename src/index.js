@@ -9,4 +9,5 @@ import App from "./App";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 
+/// do the thing ///
 ReactDOM.render (<App /> , document.getElementById ("root"));
