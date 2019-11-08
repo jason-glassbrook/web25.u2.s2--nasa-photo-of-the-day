@@ -58,7 +58,7 @@ const fetchPhoto = (query , setPhoto) => {
 /***************************************
   COMPONENTS
 ***************************************/
-function App () {
+export function App () {
   const [query , setQuery] = React.useState (init.query);
   const [photo , setPhoto] = React.useState (init.photo);
   //
