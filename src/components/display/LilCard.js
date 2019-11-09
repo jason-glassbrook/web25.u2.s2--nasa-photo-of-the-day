@@ -16,7 +16,7 @@ export function LilCard (props) {
     <Card subtype="lil-card">
       <CardImage
         url={props.image.url}
-        url={props.image.title}
+        title={props.image.title}
       />
       <CardBody>
         <CardTitle>{props.body.title}</CardTitle>

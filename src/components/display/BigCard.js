@@ -17,7 +17,7 @@ export function BigCard (props) {
     <Card subtype="big-card">
       <CardImage
         url={props.image.url}
-        url={props.image.title}
+        title={props.image.title}
       />
       <CardBody>
         <CardTitle>{props.body.title}</CardTitle>
