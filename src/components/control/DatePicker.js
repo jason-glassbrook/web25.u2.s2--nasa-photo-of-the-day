@@ -62,9 +62,19 @@ export function DatePicker (props) {
         "month" : month,
         "day"   : day,
       };
-      /* TESTING */ console.log (`submitting...`);
-      /* TESTING */ console.log (message);
-      props.onSubmit (message);
+      try {
+        /* TESTING */ console.log (`--- submitting... ---`);
+        /* TESTING */ console.log (message);
+        props.onSubmit (message);
+        /* TESTING */ console.log (`--- success! ---`);
+      }
+      catch (error) {
+        /* TESTING */ console.log (`--- failure! ---`);
+        /* TESTING */ console.log (error);
+      }
+      finally {
+        /* TESTING */ console.log (`--- done. ---`);
+      }
       setGoing (false);
     }
   } , [going]);
