@@ -36,7 +36,7 @@ export function App () {
   React.useEffect (() => {
     fetchPhoto (query , setPhoto);
     // /* TESTING */ console.log (photo); /* --- why doesn't this show the current state? --- */
-  } , [query.date]);
+  } , [query]);
   //
   return (
     <div className="App">
