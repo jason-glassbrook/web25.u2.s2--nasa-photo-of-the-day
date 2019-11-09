@@ -29,6 +29,22 @@ const init = {
 
 const fetchPhoto = fetchData (APOD_API , init.photo);
 
+const changeQueryDate = (setQuery) => (message) => {
+  /* TESTING */ console.log ("--- recieved message... ---");
+  /* TESTING */ console.log (message);
+  setQuery ((oldQuery) => {
+    /* TESTING */ console.log  ("--- old query: ---");
+    /* TESTING */ console.log  (oldQuery);
+    const newQuery = {
+      ...oldQuery,
+      ...message,
+    };
+    /* TESTING */ console.log  ("--- new query: ---");
+    /* TESTING */ console.log  (newQuery);
+    setQuery (newQuery);
+  });
+}
+
 /***************************************
   COMPONENTS
 ***************************************/
@@ -44,7 +60,7 @@ export function App () {
   return (
     <div className="App">
       {/*<p>Read through the instructions in the README.md file to build your NASA app! Have fun 🚀!</p>*/}
-      <DatePicker onSubmit={() => {}}/>
+      <DatePicker onSubmit={changeQueryDate (setQuery)}/>
       <BigCard
         className="APOD"
         image={{
