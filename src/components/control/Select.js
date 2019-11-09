@@ -22,7 +22,7 @@ function buildOptions (data) {
   return (
     <>
       {data.list.map ((el , i) => (
-        <option value={el.value}>
+        <option key={el.value} value={el.value}>
           {(el.content === undefined) ? (data.build (el.value)) : (el.content)}
         </option>
       ))}
