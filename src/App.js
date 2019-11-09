@@ -1,10 +1,10 @@
 /// external modules ///
 import React from "react";
-import axios from "axios";
 import { Date } from "core-js";
 
 /// internal modules ///
-import {APOD_API} from "./data/api.nasa.gov/api";
+import { fetchData } from "./data/fetch";
+import { APOD_API } from "./data/api.nasa.gov/api";
 import account from "./data/api.nasa.gov/account";
 
 /// styles ///
@@ -24,36 +24,7 @@ const init = {
   },
 };
 
-const fetchPhoto = (query , setPhoto) => {
-  // let data = {};
-  //
-  axios
-    .get ((() => {
-      console.log ("--- fetching photo... ---"); /* --- i just wanted this console.log nested like the others */
-      return (APOD_API.query_url (query));
-    })())
-    .then ((response) => {
-      console.log ("--- success! ---");
-      // /* TESTING */ console.log (response);
-      const data = response.data;
-      // /* TESTING */ console.log (data);
-      setPhoto (data);
-    })
-    .catch ((error) => {
-      console.log ("--- failure! ---");
-      const data = {
-        ...init.photo,
-        "error" : error,
-      };
-      // /* TESTING */ console.log (data);
-      setPhoto (data);
-    })
-    .finally (() => {
-      console.log ("--- done. ---");
-    })
-  // //
-  // return (data);
-}
+const fetchPhoto = fetchData (APOD_API , init.photo);
 
 /***************************************
   COMPONENTS
