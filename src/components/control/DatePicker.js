@@ -22,6 +22,7 @@ const handleChange = (setX) => (x) => {
   COMPONENTS
 ***************************************/
 export function DatePicker (props) {
+  /// internal states ///
   const [year , setYear] = React.useState (
     (props.year !== undefined) ? props.year : init.year
   );
@@ -32,6 +33,7 @@ export function DatePicker (props) {
     (props.day !== undefined) ? props.day : init.day
   );
 
+  /// component ///
   return (
     <div className="date-picker">
       <Select

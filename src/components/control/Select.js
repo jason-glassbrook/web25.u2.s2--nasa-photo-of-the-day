@@ -45,15 +45,18 @@ const handleChange = (setValue) => (event) => {
   COMPONENTS
 ***************************************/
 export function Select (props) {
+  /// internal states ///
   const [value , setValue] = React.useState (
     (props.value !== undefined) ? props.value : init.value
   );
 
+  /// external effects ///
   React.useEffect (() => {
     /* TESTING */ console.log (value);
     props.onChange (value);
   } , [props.onChange , value])
 
+  /// component ///
   return (
     <select
       className="select"
