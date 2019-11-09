@@ -31,11 +31,37 @@ function buildOptions (data) {
 }
 
 /***************************************
+  STATES
+***************************************/
+const init = {
+  "value" : "",
+};
+
+const onChange = (setValue , nextEffect) => (event) => {
+  setValue (event.target.value);
+  if (nextEffect !== undefined) {
+    nextEffect (event);
+  }
+};
+
+/***************************************
   COMPONENTS
 ***************************************/
 export function Select (props) {
+  const [value , setValue] = React.useState (
+    (props.value !== undefined) ? props.value : init.value
+  );
+
+  React.useEffect (() => {
+    /* TESTING */ console.log (value);
+  } , [value])
+
   return (
-    <select className="select" onChange={props.onChange} value={props.value || ""}>
+    <select
+      className="select"
+      onChange={onChange (setValue , props.onChange)}
+      value={value} /* this doesn't appear in browser? */
+    >
       <option className="select-title" value="">{props.data.name}</option>
       {buildOptions (props.data)}
     </select>
