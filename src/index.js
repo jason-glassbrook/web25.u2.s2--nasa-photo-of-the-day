@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 /// styles ///
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 
 /// do the thing ///
