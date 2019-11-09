@@ -54,7 +54,7 @@ export function Select (props) {
   React.useEffect (() => {
     /* TESTING */ console.log (value);
     props.onChange (value);
-  } , [props.onChange , value]);
+  } , [value]);
 
   /// component ///
   return (
