@@ -23,6 +23,22 @@ const handleClick = (setStatus) => () => {
   setStatus (true);
 }
 
+const submit = (send , message) => {
+  try {
+    /* TESTING */ console.log (`--- submitting... ---`);
+    /* TESTING */ console.log (message);
+    send (message);
+    /* TESTING */ console.log (`--- success! ---`);
+  }
+  catch (error) {
+    /* TESTING */ console.log (`--- failure! ---`);
+    /* TESTING */ console.log (error);
+  }
+  finally {
+    /* TESTING */ console.log (`--- done. ---`);
+  }
+}
+
 /***************************************
   COMPONENTS
 ***************************************/
@@ -56,25 +72,12 @@ export function DatePicker (props) {
   React.useEffect (() => {
     /* TESTING */ console.log (`was clicked: ${going}`);
     if (going) {
-      const message = {
+      submit (props.onSubmit , {
         "date"  : (new Date (`${year}-${month}-${day}`)),
         "year"  : year,
         "month" : month,
         "day"   : day,
-      };
-      try {
-        /* TESTING */ console.log (`--- submitting... ---`);
-        /* TESTING */ console.log (message);
-        props.onSubmit (message);
-        /* TESTING */ console.log (`--- success! ---`);
-      }
-      catch (error) {
-        /* TESTING */ console.log (`--- failure! ---`);
-        /* TESTING */ console.log (error);
-      }
-      finally {
-        /* TESTING */ console.log (`--- done. ---`);
-      }
+      });
       setGoing (false);
     }
   } , [going]);
