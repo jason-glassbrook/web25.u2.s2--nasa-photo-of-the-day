@@ -43,8 +43,8 @@ export function App () {
   return (
     <div className="App">
       {/*<p>Read through the instructions in the README.md file to build your NASA app! Have fun 🚀!</p>*/}
-      <Photo className="APOD" url={photo.hdurl} title={photo.title}/>
       <DatePicker onSubmit={() => {}}/>
+      <Photo className="APOD" url={photo.hdurl} title={photo.title}/>
     </div>
   );
 }
