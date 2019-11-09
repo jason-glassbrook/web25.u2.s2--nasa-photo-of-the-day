@@ -1,5 +1,9 @@
+/// external modules ///
 import React from "react";
 
+/***************************************
+  HELPERS
+***************************************/
 function buildOptions (data) {
   /// create data.build function if missing ///
   if (data.build === undefined) {
@@ -26,6 +30,9 @@ function buildOptions (data) {
   );
 }
 
+/***************************************
+  COMPONENTS
+***************************************/
 export function Button (props) {
   return (
     <select className="select" onChange={props.onChange} value={props.value || ""}>
@@ -35,4 +42,5 @@ export function Button (props) {
   );
 }
 
+/**************************************/
 export default Button;
