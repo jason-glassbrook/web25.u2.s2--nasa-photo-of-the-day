@@ -19,7 +19,7 @@ const handleChange = (setX) => (x) => {
   setX (x);
 };
 
-const handleClick = (setStatus) => {
+const handleClick = (setStatus) => () => {
   setStatus (true);
 }
 
