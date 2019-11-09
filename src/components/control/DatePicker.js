@@ -90,10 +90,11 @@ export function DatePicker (props) {
         className="year"
         value={year}
         data={{
-          "name" : "year",
-          "min"  : 2000,
-          "max"  : 2019,
-          "step" : 1,
+          "name"  : "year",
+          "min"   : 2000,
+          "max"   : 2019,
+          "step"  : 1,
+          "build" : (n) => (n.toString ().padStart (4 , "0")),
         }}
         onChange={handleChange (setYear)}
       />
@@ -102,10 +103,11 @@ export function DatePicker (props) {
         className="month"
         value={month}
         data={{
-          "name" : "month",
-          "min"  : 1,
-          "max"  : 12,
-          "step" : 1,
+          "name"  : "month",
+          "min"   : 1,
+          "max"   : 12,
+          "step"  : 1,
+          "build" : (n) => (n.toString ().padStart (2 , "0")),
         }}
         onChange={handleChange (setMonth)}
       />
@@ -114,10 +116,11 @@ export function DatePicker (props) {
         className="day"
         value={day}
         data={{
-          "name" : "day",
-          "min"  : 1,
-          "max"  : 31,
-          "step" : 1,
+          "name"  : "day",
+          "min"   : 1,
+          "max"   : 31,
+          "step"  : 1,
+          "build" : (n) => (n.toString ().padStart (2 , "0")),
         }}
         onChange={handleChange (setDay)}
       />
