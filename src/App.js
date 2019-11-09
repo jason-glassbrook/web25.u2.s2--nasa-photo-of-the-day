@@ -3,6 +3,8 @@ import React from "react";
 import { Date } from "core-js";
 
 /// internal modules ///
+import Photo from "./components/display/Photo";
+import DatePicker from "./components/control/DatePicker";
 import { fetchData } from "./data/fetch";
 import { APOD_API } from "./data/api.nasa.gov/api";
 import account from "./data/api.nasa.gov/account";
@@ -41,7 +43,8 @@ export function App () {
   return (
     <div className="App">
       {/*<p>Read through the instructions in the README.md file to build your NASA app! Have fun 🚀!</p>*/}
-      <img className="APOD" src={photo.hdurl} alt={photo.title}/>
+      <Photo className="APOD" src={photo.hdurl} alt={photo.title}/>
+      <DatePicker/>
     </div>
   );
 }
