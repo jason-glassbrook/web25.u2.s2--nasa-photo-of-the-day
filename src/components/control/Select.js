@@ -44,7 +44,7 @@ const handleChange = (setValue) => (event) => {
 /***************************************
   COMPONENTS
 ***************************************/
-export function Select ({data , initValue , onChange}) {
+export function Select ({ data , initValue , onChange }) {
   const [value , setValue] = React.useState (
     (initValue !== undefined) ? initValue : init.value
   );
