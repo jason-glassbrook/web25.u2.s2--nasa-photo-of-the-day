@@ -10,6 +10,7 @@ import { APOD_API } from "./data/api.nasa.gov/api";
 import account from "./data/api.nasa.gov/account";
 
 /// styles ///
+import "./styles/reset.css";
 import "./styles/App.css";
 
 /***************************************
