@@ -33,7 +33,7 @@ function buildOptions (data) {
 /***************************************
   COMPONENTS
 ***************************************/
-export function Button (props) {
+export function Select (props) {
   return (
     <select className="select" onChange={props.onChange} value={props.value || ""}>
       <option className="select-title" value="">{props.data.name}</option>
@@ -43,4 +43,4 @@ export function Button (props) {
 }
 
 /**************************************/
-export default Button;
+export default Select;
