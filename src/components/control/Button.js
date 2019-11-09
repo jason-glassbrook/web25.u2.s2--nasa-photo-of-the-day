@@ -4,10 +4,10 @@ import React from "react";
 /***************************************
   COMPONENTS
 ***************************************/
-export function Button ({ onClick , children }) {
+export function Button (props) {
   return (
-    <button className="button" onClick={onClick}>
-      {children}
+    <button className="button" onClick={props.onClick}>
+      {props.children}
     </button>
   );
 }

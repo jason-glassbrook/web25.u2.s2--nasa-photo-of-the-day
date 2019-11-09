@@ -44,15 +44,15 @@ const handleChange = (setValue) => (event) => {
 /***************************************
   COMPONENTS
 ***************************************/
-export function Select ({ data , initValue , onChange }) {
+export function Select (props) {
   const [value , setValue] = React.useState (
-    (initValue !== undefined) ? initValue : init.value
+    (props.value !== undefined) ? props.value : init.value
   );
 
   React.useEffect (() => {
     /* TESTING */ console.log (value);
-    onChange (value);
-  } , [onChange , value])
+    props.onChange (value);
+  } , [props.onChange , value])
 
   return (
     <select
@@ -60,8 +60,8 @@ export function Select ({ data , initValue , onChange }) {
       onChange={handleChange (setValue)}
       value={value} /* this doesn't appear in browser? */
     >
-      <option className="select-title" value="">{data.name}</option>
-      {buildOptions (data)}
+      <option className="select-title" value="">{props.data.name}</option>
+      {buildOptions (props.data)}
     </select>
   );
 }
