@@ -12,7 +12,7 @@ function buildOptions (data) {
   /// create data.list if missing ///
   if (data.list === undefined) {
     data.list = [];
-    for (const n = data.min ; n <= data.max ; n += data.step) {
+    for (let n = data.min ; n <= data.max ; n += data.step) {
       data.list.push ({
         "value"   : n,
       });
@@ -21,7 +21,7 @@ function buildOptions (data) {
   /// create options ///
   return (
     <>
-      {options.list.map ((el , i) => (
+      {data.list.map ((el , i) => (
         <option value={el.value}>
           {(el.content === undefined) ? (data.build (el.value)) : (el.content)}
         </option>
