@@ -4,7 +4,7 @@ import React from "react";
 /***************************************
   HELPERS
 ***************************************/
-function buildOptions (data) {
+const buildOptions = (data) => {
   /// create data.build function if missing ///
   if (data.build === undefined) {
     data.build = (x) => (x.toString ());
@@ -28,7 +28,7 @@ function buildOptions (data) {
       ))}
     </>
   );
-}
+};
 
 /***************************************
   STATES
@@ -54,7 +54,7 @@ export function Select (props) {
   React.useEffect (() => {
     /* TESTING */ console.log (value);
     props.onChange (value);
-  } , [props.onChange , value])
+  } , [props.onChange , value]);
 
   /// component ///
   return (
