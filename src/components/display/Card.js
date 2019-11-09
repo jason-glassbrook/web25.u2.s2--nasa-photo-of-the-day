@@ -6,7 +6,9 @@ import React from "react";
 ***************************************/
 export function Card (props) {
   return (
-    <div className={`card ${props.subtype}`}></div>
+    <div className={`card ${props.subtype}`}>
+      {props.children}
+    </div>
   );
 }
 
