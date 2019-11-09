@@ -33,6 +33,17 @@ export function DatePicker (props) {
     (props.day !== undefined) ? props.day : init.day
   );
 
+  /// internal effects ///
+  React.useEffect (() => {
+    /* TESTING */ console.log (`year: ${year}`);
+  } , [year]);
+  React.useEffect (() => {
+    /* TESTING */ console.log (`month: ${month}`);
+  } , [month]);
+  React.useEffect (() => {
+    /* TESTING */ console.log (`day: ${day}`);
+  } , [day]);
+
   /// component ///
   return (
     <div className="date-picker">
