@@ -36,6 +36,7 @@ export function DatePicker (props) {
     <div className="date-picker">
       <Select
         className="year"
+        value={year}
         data={{
           "name" : "year",
           "min"  : 2000,
@@ -46,6 +47,7 @@ export function DatePicker (props) {
       />
       <Select
         className="month"
+        value={month}
         data={{
           "name" : "month",
           "min"  : 1,
@@ -56,6 +58,7 @@ export function DatePicker (props) {
       />
       <Select
         className="day"
+        value={day}
         data={{
           "name" : "day",
           "min"  : 1,
