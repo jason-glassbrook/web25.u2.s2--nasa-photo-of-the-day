@@ -6,6 +6,19 @@ import Select from "./Select";
 import Button from "./Button";
 
 /***************************************
+  STATES
+***************************************/
+const init = {
+  "year" : "",
+  "month" : "",
+  "day" : "",
+};
+
+const handleChange = (setX) => (x) => {
+  setX (x);
+};
+
+/***************************************
   COMPONENTS
 ***************************************/
 export function DatePicker (props) {
