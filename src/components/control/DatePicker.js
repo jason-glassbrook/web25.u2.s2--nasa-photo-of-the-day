@@ -48,6 +48,7 @@ export function DatePicker (props) {
   return (
     <div className="date-picker">
       <Select
+        key="year"
         className="year"
         value={year}
         data={{
@@ -59,6 +60,7 @@ export function DatePicker (props) {
         onChange={handleChange (setYear)}
       />
       <Select
+        key="month"
         className="month"
         value={month}
         data={{
@@ -70,6 +72,7 @@ export function DatePicker (props) {
         onChange={handleChange (setMonth)}
       />
       <Select
+        key="day"
         className="day"
         value={day}
         data={{
