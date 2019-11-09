@@ -63,7 +63,13 @@ export function Select (props) {
       onChange={handleChange (setValue)}
       value={value} /* this doesn't appear in browser? */
     >
-      <option className="select-title" value="">{props.data.name}</option>
+      <option
+        key="select-title"
+        className="select-title"
+        value=""
+      >
+        {props.data.name}
+      </option>
       {buildOptions (props.data)}
     </select>
   );
