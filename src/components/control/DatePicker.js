@@ -19,7 +19,7 @@ export function DatePicker (props) {
           "max"  : 2019,
           "step" : 1,
         }}
-        onChange={() => {}}
+        onChange={(event) => {console.log (event.target.value)}}
       />
       <Select
         className="month"
@@ -29,7 +29,7 @@ export function DatePicker (props) {
           "max"  : 12,
           "step" : 1,
         }}
-        onChange={() => {}}
+        onChange={(event) => {console.log (event.target.value)}}
       />
       <Select
         className="day"
@@ -39,7 +39,7 @@ export function DatePicker (props) {
           "max"  : 31,
           "step" : 1,
         }}
-        onChange={() => {}}
+        onChange={(event) => {console.log (event.target.value)}}
       />
       <Button onClick={() => {}}>Go</Button>
     </div>
