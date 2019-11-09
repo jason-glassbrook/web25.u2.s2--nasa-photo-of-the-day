@@ -16,19 +16,20 @@ function buildOptions (data) {
   }
   /// create options ///
   return (
-    <>{
-      options.list.map ((el , i) => (
+    <>
+      {options.list.map ((el , i) => (
         <option value={el.value}>
-          {(el.content !== undefined) ? (el.content) : (data.build (el.value))}
+          {(el.content === undefined) ? (data.build (el.value)) : (el.content)}
         </option>
-      ))
-    }</>
+      ))}
+    </>
   );
 }
 
 export function Button (props) {
   return (
-    <select className="select" onChange={props.onChange} value={props.value}>
+    <select className="select" onChange={props.onChange} value={props.value || ""}>
+      <option className="select-title" value="">{props.data.name}</option>
       {buildOptions (props.data)}
     </select>
   );
