@@ -9,14 +9,19 @@ import Button from "./Button";
   STATES
 ***************************************/
 const init = {
-  "year" : "",
+  "year"  : "",
   "month" : "",
-  "day" : "",
+  "day"   : "",
+  "going" : false,
 };
 
 const handleChange = (setX) => (x) => {
   setX (x);
 };
+
+const handleClick = (setStatus) => {
+  setStatus (true);
+}
 
 /***************************************
   COMPONENTS
@@ -32,6 +37,9 @@ export function DatePicker (props) {
   const [day , setDay] = React.useState (
     (props.day !== undefined) ? props.day : init.day
   );
+  const [going , setGoing] = React.useState (
+    init.going
+  );
 
   /// internal effects ///
   React.useEffect (() => {
@@ -43,6 +51,23 @@ export function DatePicker (props) {
   React.useEffect (() => {
     /* TESTING */ console.log (`day: ${day}`);
   } , [day]);
+
+  /// external effects ///
+  React.useEffect (() => {
+    /* TESTING */ console.log (`was clicked: ${going}`);
+    if (going) {
+      const message = {
+        "date"  : (new Date (`${year}-${month}-${day}`)),
+        "year"  : year,
+        "month" : month,
+        "day"   : day,
+      };
+      /* TESTING */ console.log (`submitting...`);
+      /* TESTING */ console.log (message);
+      props.onSubmit (message);
+      setGoing (false);
+    }
+  } , [going]);
 
   /// component ///
   return (
@@ -83,7 +108,7 @@ export function DatePicker (props) {
         }}
         onChange={handleChange (setDay)}
       />
-      <Button onClick={() => {}}>Go</Button>
+      <Button onClick={handleClick (setGoing)}>Go</Button>
     </div>
   );
 }
