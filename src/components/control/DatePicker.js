@@ -25,17 +25,17 @@ const handleClick = (setStatus) => () => {
 
 const submit = (send , message) => {
   try {
-    /* TESTING */ console.log (`--- submitting... ---`);
+    /* TESTING */ console.log ("--- submitting... ---");
     /* TESTING */ console.log (message);
     send (message);
-    /* TESTING */ console.log (`--- success! ---`);
+    /* TESTING */ console.log ("--- success! ---");
   }
   catch (error) {
-    /* TESTING */ console.log (`--- failure! ---`);
+    /* TESTING */ console.log ("--- failure! ---");
     /* TESTING */ console.log (error);
   }
   finally {
-    /* TESTING */ console.log (`--- done. ---`);
+    /* TESTING */ console.log ("--- done. ---");
   }
 }
 
