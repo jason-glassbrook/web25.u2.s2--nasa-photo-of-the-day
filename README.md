@@ -55,8 +55,8 @@ This project was put together using create-react-app (CRA). You will not need to
 
 #### Step 2 - File structure
 
--   [ ] Take a look at your planned components. Create the folders and files you need for each component.
--   [ ] Leave most of them blank for now - you need to get your data from the API before you can really get these built.
+-   [x] Take a look at your planned components. Create the folders and files you need for each component.
+-   [x] Leave most of them blank for now - you need to get your data from the API before you can really get these built.
 
 #### Step 3 - Fetching the Data
 
@@ -108,7 +108,7 @@ return (
 
 Do not attempt stretch problems until MVP has been reached and a final commit has been made.
 
--   Notice the optional query param `date`? You can pass a different date in your url like this `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2012-03-14` to get the APOD from a different date. Add a date dropdown that allows you to select a different date and see that APOD. This will be quite a bit of work, but it will be a fantastic exercise to go through a little more complicated logic and interaction in your app. This is also a very common type of interaction, so it would be good to try this out
--   Make another app that consumes another one of NASA's other APIs listed on the same website
+-   [x] Notice the optional query param `date`? You can pass a different date in your url like this `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2012-03-14` to get the APOD from a different date. Add a date dropdown that allows you to select a different date and see that APOD. This will be quite a bit of work, but it will be a fantastic exercise to go through a little more complicated logic and interaction in your app. This is also a very common type of interaction, so it would be good to try this out
+-   [ ] Make another app that consumes another one of NASA's other APIs listed on the same website
 
 ## Part II - [Advanced Styling Techniques](DAY_TWO_README.md)
